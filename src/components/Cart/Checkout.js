@@ -10,7 +10,7 @@ const Checkout = (props) => {
   });
 
   const isEmpty = (value) => value.trim() === "";
-  const isFiveChars = (value) => value.trim().length === 5;
+  const isSixChars = (value) => value.trim().length === 6;
 
   const nameInputRef = useRef();
   const streetInputRef = useRef();
@@ -27,7 +27,7 @@ const Checkout = (props) => {
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
-    const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode);
+    const enteredPostalCodeIsValid = isSixChars(enteredPostalCode);
     const enteredCityIsValid = !isEmpty(enteredCity);
 
     setFormInputsValidity({
@@ -82,7 +82,7 @@ const Checkout = (props) => {
         <label htmlFor="postal">Postal Code</label>
         <input ref={postalCodeInputRef} type="text" id="postal" />
         {!formInputsValidity.postalCode && (
-          <p>Please enter a valid postal code (5 characters long)!</p>
+          <p>Please enter a valid postal code (6 characters long)!</p>
         )}
       </div>
       <div
